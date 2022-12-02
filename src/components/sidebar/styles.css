@@ -1,0 +1,28 @@
+
+.sidebar{
+   position: fixed;
+   top:0;
+   right: 0;
+   width: 20vw;
+   background-color: gray;
+   padding: 2rem;
+   z-index: 1;
+   height: 100vh; 
+   background-color:rgba(255, 255, 255, 0.397);
+   font-family: 'Quicksand', sans-serif;
+
+}
+
+h2{
+    color: #000 !important;
+}
+
+
+.close-button{
+    width: 20px;
+    height: 22px;
+    cursor: pointer;
+    border:none;
+    color: #000 !important;
+    margin-top: 16%;
+}

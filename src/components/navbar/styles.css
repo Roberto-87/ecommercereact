@@ -1,0 +1,39 @@
+*{
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Quicksand', sans-serif;
+    color: white !important;
+ }
+
+
+ .container_logo{
+    margin-right: 20%;
+ }
+
+.logo{
+    width: 40%;
+    margin-right: 140%;
+ 
+}
+.navbar{
+    margin-top: -10px;
+    margin-bottom: 10%;
+    background-color: #011627 !important;
+    padding-top: 2%;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+
+}
+
+.nav-link {
+    font-size: 1.1rem;
+    transition: 1.2s ease-in-out;
+}
+
+.nav-link:hover {
+    color: grey !important;
+}
+
+
+.container_nav{
+    margin-left: 18%;
+}
