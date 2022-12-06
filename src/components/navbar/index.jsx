@@ -2,7 +2,7 @@ import React from 'react'
 import logo from './img/logo-svgrepo-com.svg'
 import './styles.css'
 import Button from '../button'
-
+import CartWidget from '../cartWidget'
 
 function Navbar({onHandlerClick}) {
   return (
@@ -14,9 +14,11 @@ function Navbar({onHandlerClick}) {
       </button>
       <div className="collapse navbar-collapse " id="navbarSupportedContent">
         <ul className="navbar-nav me-auto mb-2 mb-lg-0 ">
+        <li className="nav-item cart_container">
+            <a className="active" aria-current="page" href="#"><img className='logo' src={logo} alt="" /></a>
+          </li>
 
-
-           <li className="nav-item">
+           <li className="nav-item ">
             <a className="nav-link active" aria-current="page" href="#">Vehículos</a>
           </li>
           <li className="nav-item">
@@ -28,19 +30,18 @@ function Navbar({onHandlerClick}) {
           <li className="nav-item">
             <a className="nav-link active" aria-current="page" href="#">Electrodomésticos</a>
           </li>
+       
+
           <li className="nav-item">
-            <a className="nav-link active" aria-current="page" href="#">Ofertas</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link active" aria-current="page" href="#">ver más categorías </a>
-          </li>
+            <a className="nav-link active more_categories" aria-current="page" href="#">ver más categorías </a>
+          </li>        
     
-          <form role={'search'} className='d-flex container_input_search'>
+          <form role={'search'} className='d-flex container_input_search form_search'>
             <input type="search me-2" placeholder="Search" aria-label="Search" className='bg-light input_search'></input>
             <button className="btn btn-outline-success" type="submit">Search</button>
           </form>
           <li className="nav-item">
-            <a className="nav-link active" aria-current="page" href="#" onClick={onHandlerClick}>🛒</a>
+            <a className="nav-link active" aria-current="page" href="#" onClick={onHandlerClick}><CartWidget/>  </a>
           </li>
       </ul>
       </div>
