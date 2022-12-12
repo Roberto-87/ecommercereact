@@ -1,5 +1,13 @@
+.container_grettings{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin-top: -80px;
+    padding-bottom: 10px;
+}
+
 .grettings{
     font-family: 'Quicksand', sans-serif !important;
     color: #011627  !important;
- 
+  
 }

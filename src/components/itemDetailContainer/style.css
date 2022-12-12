@@ -1,0 +1,27 @@
+*{
+    list-style: none;
+    text-decoration: none !important;
+}
+
+.container_card{
+    display: flex;
+    justify-content: center;
+}
+
+.card{
+    width: 18rem;
+    gap: 5px;
+    transition: 1s ease-in-out;
+    background-color: #597b8b !important;
+
+}
+
+.card:hover{
+    background-color:    #567a8bcc!important;
+    cursor: pointer;
+}
+
+.card-title{
+    font-family: 'Quicksand', sans-serif !important;
+    color: black !important;
+}

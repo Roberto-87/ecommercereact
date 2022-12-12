@@ -50,7 +50,7 @@
 
 
  .container_nav{
-    margin-right: 3%;
+    margin-right: 2%;
     margin-bottom: 1.2%;
 
 } 
@@ -65,3 +65,10 @@
     height: 20%;
     margin-bottom: 0
 }
+
+.user_avatar{
+    width: 40px;
+    border-radius: 50%;
+
+}
+
