@@ -1,16 +1,21 @@
-import React, { useEffect, useState } from "react";
-import logo from "./logo.svg";
-import "./App.css";
-import Button from "./components/button";
-import Sidebar from "./components/sidebar";
-import Navbar from "./components/navbar";
-import ItemListContainer from "./components/itemListContainer";
-import { URL_BASE, URL_ENDPOINTS } from "./constants/services";
+import React from "react";
 import { useFetch } from "./hooks/useFetch";
-import ItemDetailContainer from "./components/itemDetailContainer";
+import { URL_BASE, URL_ENDPOINTS } from "./constants/services";
+import Navbar from "./components/navbar";
+import { useState, useContext } from "react";
+import Sidebar from "./components/sidebar";
+import "./App.css";
+import Navigation from "./router";
+import { Link, useNavigate } from "react-router-dom";
+import { CartProvider, CartContext } from "./context";
+import { Cart } from "./pages";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
+  const { cart } = useContext(CartContext);
+  const onHandlerClick = () => {
+    setIsOpen(!isOpen);
+  };
 
   const {
     data: dataUser,
@@ -18,27 +23,21 @@ function App() {
     loading: loadingUser,
   } = useFetch(`${URL_BASE}${URL_ENDPOINTS.USERS}`);
 
-  const {
-    data: dataProduct,
-    error: errorProduct,
-    loading: errorLoading,
-  } = useFetch(`${URL_BASE}${URL_ENDPOINTS.PRODUCTS}`);
-
-  const onHandlerClick = () => {
-    setIsOpen(!isOpen);
-  };
-
   return (
-    <div className="App">
-      <Navbar onHandlerClick={onHandlerClick} user={dataUser[0]} />
-      <ItemListContainer
-        grettings={"bienvenid@ a mi market place"}
-      ></ItemListContainer>
-      <ItemDetailContainer product={dataProduct[0]}></ItemDetailContainer>
-      <Sidebar onClose={onHandlerClick} isOpen={isOpen}>
-        <h2>Tu compra</h2>
-      </Sidebar>
-      <header className="App-header"></header>
+    <div>
+      <CartProvider>
+        <Navbar
+          onHandlerClick={onHandlerClick}
+          numberOfItems={cart.length}
+          user={dataUser[0]}
+        />
+        <Sidebar onClose={onHandlerClick} isOpen={isOpen}>
+          <Link to="/cart" className="tu_compra">
+            Tu compra
+          </Link>
+        </Sidebar>
+        <Navigation></Navigation>
+      </CartProvider>
     </div>
   );
 }

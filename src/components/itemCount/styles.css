@@ -1,0 +1,24 @@
+.container_buttons_add{
+    width: 100%;
+    margin-right: 15px;
+    display: flex;
+    
+
+}
+
+.button_detail{
+    margin: 4px;
+    width: 30%;
+    height: 70%;
+    border-radius:50% ;
+    background-color: lightblue;
+    border: none;
+    transition: all 1.5s ease-out;
+    color: black !important;
+}
+
+.input_add{
+    width: 30px;
+    height: 30px;
+    margin-top: 6px;
+}

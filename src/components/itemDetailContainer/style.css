@@ -1,27 +1,48 @@
 *{
     list-style: none;
     text-decoration: none !important;
+    border: none;
 }
 
-.container_card{
-    display: flex;
+.container_cards{
+    margin-top: 5px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill,320px); 
     justify-content: center;
+    gap: 5px;
+  
 }
+
 
 .card{
     width: 18rem;
     gap: 5px;
-    transition: 1s ease-in-out;
-    background-color: #597b8b !important;
-
+    transition: 0.4s ease-in-out;
+    /* background-color: #19EDF0 !important; */
+    box-shadow:  3px 3px #e9d8a669;
+    background-color: white !important;
+       
+  
 }
 
 .card:hover{
-    background-color:    #567a8bcc!important;
+    /* background-color:  #0DD0D3!important; */
     cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.606)!important;
+   
 }
+
 
 .card-title{
     font-family: 'Quicksand', sans-serif !important;
-    color: black !important;
+    color: #011627 !important;
+}
+
+.card-text, .card-price{
+    color: #011627  !important;
+}
+
+.container_price-detail{
+    width: 250px;
+ 
 }

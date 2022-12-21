@@ -21,18 +21,15 @@
 .cart_container{
     display: flex;
     justify-content: flex-start;
-    width: 100%;
-  
 }
 
 .navbar{
-    margin-top: -10px;
+
     margin-bottom: 10%;
     background-color: #011627 !important;
     padding-top: 2%;
     box-shadow: 1px 2px 1px 1px rgba(0, 0, 0, 0.2);
     height: 11vh;
-    margin-top: 3%;
 
 }
 
@@ -52,7 +49,7 @@
  .container_nav{
     margin-right: 2%;
     margin-bottom: 1.2%;
-
+  
 } 
 
 .more_categories{
@@ -63,7 +60,6 @@
 
 .form_search{
     height: 20%;
-    margin-bottom: 0
 }
 
 .user_avatar{
