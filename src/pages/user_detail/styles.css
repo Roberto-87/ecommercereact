@@ -1,0 +1,26 @@
+.user_container{
+    background-color:#3c50690f;
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1%;
+   
+    
+    
+}
+.user-detail{
+    margin: 10px;
+    color: black !important;
+    display: flex;
+    align-items: center;
+}
+
+
+.userName{
+    color: black !important;
+    margin-left: 5px;
+    margin-top: 7px;
+
+}

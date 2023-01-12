@@ -13,7 +13,6 @@ export const CartContext= createContext(initialState)
  
 export const CartProvider= ({children})=>{
     const{state}= useLocation();
-  
     const item= [state]
     const[cart, setCart]=useState([])
     const onIncrease=(id)=>{

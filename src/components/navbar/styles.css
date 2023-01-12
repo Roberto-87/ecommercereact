@@ -41,6 +41,10 @@
 
 }
 
+.dropdown-toggle{
+    margin-right: 10px !important;
+}
+
 .nav-link:hover {
     color: grey !important;
 }

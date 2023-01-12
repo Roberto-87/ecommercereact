@@ -1,13 +1,30 @@
 import React from 'react'
 import logo from './img/logo-svgrepo-com.svg'
 import './styles.css'
-import Button from '../button'
 import CartWidget from '../cartWidget'
-import { Link } from 'react-router-dom'
-import User from '../../pages/user_detail'
-import ItemDetailContainer from '../itemDetailContainer'
+import { Link, useLocation } from 'react-router-dom'
+import DropDown from '../dropdown'
+import { useState } from 'react'
+import ItemCount from '../itemCount'
 
-function Navbar({onHandlerClick , user}) {
+
+
+function Navbar({onHandlerClick , user, product}) {
+
+  // const onSelectCategory=(e)=>{
+  //   let category_clicked=(e.target.innerText)
+  //   let category_filter= dataProduct.filter(product=> product.category_product==category_clicked)
+  // }
+
+   const [click, setClick]= useState(false)
+
+  const onHandlerCategory=(e )=>{
+    setClick(()=>{     
+      let category_clicked=(e.target.innerText)
+      console.log(category_clicked)
+    })
+  }
+
 
   return (
     <nav className="navbar navbar-expand-lg bg-light ">
@@ -22,20 +39,22 @@ function Navbar({onHandlerClick , user}) {
             {/* <a className="active" aria-current="page" href="#"><img className='logo' src={logo} alt="/" /></a> */}
             <Link  to='/'><img className='logo' src={logo} alt="logo" /></Link>
           </li>
-      
+         
+     
           <Link className="nav-item " to='categories/computers'>
-            <a className="nav-link active" aria-current="page" href="#">Computers </a>
-          
+            <a className="nav-link active" onClick={onHandlerCategory}  aria-current="page" href="#">Computers </a>       
+               
             </Link>
-            <li className="nav-item">
-            <a className="nav-link active" aria-current="page" href="#">Shoes</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link active" aria-current="page" href="#">Industrial</a>
-          </li>   
-          <li className="nav-item">
-            <a className="nav-link active more_categories" aria-current="page" href="#">more categories </a>
-          </li>   
+
+            <Link  className="nav-item " to='categories/shoes'>
+            <a className="nav-link active" aria-current="page" href="#">Shoes </a>          
+            </Link>
+
+            <Link className="nav-item " to='categories/industrial'>
+            <a className="nav-link active"  aria-current="page" href="#">Industrial </a>          
+            </Link>
+           <DropDown></DropDown> 
+          
           <form role={'search'} className='d-flex container_input_search form_search'>
             <input type="search me-2" placeholder="Search" aria-label="Search" className='bg-light input_search'></input>
             <button className="btn btn-outline-success" type="submit">Search</button>
@@ -44,9 +63,9 @@ function Navbar({onHandlerClick , user}) {
             <a className="nav-link active" aria-current="page" href="#" onClick={onHandlerClick}><CartWidget/>  </a>
           </li>
           <li className="nav-item container_avatar">
-          
-          <Link to={'/user'}  src={user?.avatar}  alt={user?.name}>
-            <img className='user_avatar' src= {user?.avatar}  alt="" />
+  
+          <Link to={{pathname:'/user'}}  src={user?.avatar}  alt={user?.name}>
+            <img className='user_avatar' src= {user?.avatar}  alt="" />     
 
            </Link>
             

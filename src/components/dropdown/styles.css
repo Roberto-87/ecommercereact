@@ -1,0 +1,8 @@
+.dropdown-item:hover{
+    color: black !important;
+}
+
+.dropdown-toggle{
+    border: none !important;
+    margin-top: 1px;
+}

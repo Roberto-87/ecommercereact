@@ -1,40 +1,44 @@
-import ItemListContainer from "../../components/itemListContainer";
-import { URL_BASE, URL_ENDPOINTS } from "../../constants/services";
-import { useFetch } from "../../hooks/useFetch";
-import ItemDetailContainer from "../../components/itemDetailContainer";
 import './styles.css'
 import { useNavigate } from "react-router-dom";
+import {getFirestore, collection, getDocs } from 'firebase/firestore';
+import { useEffect, useState } from "react";
+import ItemListContainer from '../../components/itemListContainer';
+import ItemDetailContainer from '../../components/itemDetailContainer';
 
 function Home() {
+
+ const [product, setProduct]= useState()
+  const [loading, setLoading]= useState()
+
+  useEffect(()=>{
+    setLoading(true)
+    const db= getFirestore();
+
+    const itemCollection= collection(db, 'products');
+    getDocs(itemCollection).then((snapshot)=>{
+       if(snapshot.size===0){
+        console.log('No results')
+       }     
+    setProduct(snapshot.docs.map((doc)=>({id:doc.id, ...doc.data()
+       })))    
  
-const {
-        data: dataProduct,
-        error: errorProduct,
-        loading: loadingProduct,
-      } = 
-      useFetch(`${URL_BASE}${URL_ENDPOINTS.PRODUCTS}`);
-   
-  const navigate= useNavigate()  
-  const onHandlerSelect=(product)=>{
+    })
+     },[])
+
+const navigate= useNavigate()  
+
+   const onHandlerSelect=(product)=>{
     navigate(`/product/${product.id}`,{state: product})
-
   }
-
 
   return (
     <div className="App">
-      <ItemListContainer
-        grettings={"bienvenid@ a mi market place"} 
-      >
-        
-      </ItemListContainer>
-      <div className="container_cards">
-      <ItemDetailContainer product={dataProduct} selectProduct={onHandlerSelect}>        
-      </ItemDetailContainer>
-      </div>
-      <header className="App-header"></header>
-    </div>
-  );
-}
+      <ItemListContainer grettings={"bienvenid@ a mi market place"}></ItemListContainer>   
+       <ItemDetailContainer product={product} selectProduct={onHandlerSelect}></ItemDetailContainer>   
 
+    </div>
+     
+  )        
+  
+}
 export default Home;
