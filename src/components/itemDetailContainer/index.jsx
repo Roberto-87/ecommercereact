@@ -2,17 +2,16 @@ import React, {useContext} from 'react'
 import './style.css'
 
 
-function ItemDetailContainer({product, selectProduct}) {
+function ItemDetailContainer({productos, selectProduct, name}) {
   
   return ( 
-   product.map(product=>            
      <div className='container_card container-fluid' >
-               <div className="card" onClick={()=>selectProduct(product)}>
-           <img src={product?.image} className="card-img-top" alt={product?.name}/>
+               <div className="card" onClick={()=>selectProduct(productos)}>
+           <img src={productos?.image} className="card-img-top" alt={name}/>
              <div className="card-body">
-                    <h2 className="card-title">{product?.name}</h2> 
-                    <h6 className="card-text">{product?.category}</h6>                
-                   <p className='card-price'>USD{product?.price}</p>
+                    <h2 className="card-title">{name}</h2> 
+                    <h6 className="card-text">{productos?.category}</h6>                
+                   <p className='card-price'>USD{productos?.price}</p>
                </div>
    
               </div>
@@ -22,7 +21,7 @@ function ItemDetailContainer({product, selectProduct}) {
                     
                  
                  
-              ))  }
+              )  }
                 
              
 
